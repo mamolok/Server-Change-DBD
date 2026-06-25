@@ -1,4 +1,4 @@
-# Hi there! I'm MamoLok (Mr.) 👋
+# Hi there! I'm MamoLok (Nine) 👋
 
 Welcome to my GitHub profile! I am an aspiring **Full-Stack Developer** who loves building things and learning new technologies. 
 
