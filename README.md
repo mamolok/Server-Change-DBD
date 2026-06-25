@@ -5,7 +5,7 @@ Welcome to my GitHub profile! I am an aspiring **Full-Stack Developer** who love
 ---
 
 ## 🚀 About Me
-* 📖 **Current Focus:** I am currently learning **JavaScript** to level up my web development skills (still a work in progress, but getting better every day!).
+* 📖 **Current Focus:** I am currently learning **JavaScript** to level up my web development skills (still a work in progress).
 * 🛠️ **Tech Stack:** I have a solid foundation in **Java** and **C++**.
 * 🎉 **Milestone:** This repository is my very first **public project**! 
 
