@@ -16,9 +16,3 @@ Welcome to my GitHub profile! I am an aspiring **Full-Stack Developer** who love
 * **Interested in:** Full-Stack Development
 
 ---
-
-## 📩 Contact Me
-If you'd like to collaborate on a project or have any job opportunities, feel free to reach out:
-* 📧 **Email:** baramee.dev@gmail.com
-
----
