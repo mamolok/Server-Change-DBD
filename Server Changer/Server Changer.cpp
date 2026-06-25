@@ -4,9 +4,76 @@
 #include <sstream>
 #include <cstdlib>
 #include <fstream>
+#include <regex>
 #include "json.hpp"
 
-const std::string GAME_PATH = "G:\\Program Files (x86)\\Steam\\steamapps\\common\\Dead by Daylight\\DeadByDaylight\\Binaries\\Win64\\DeadByDaylight-Win64-Shipping.exe";
+std::string GAME_PATH = "";
+
+namespace fs = std::filesystem;
+
+std::string GetSteamPathFromRegistry() {
+	return "C:\\Program Files (x86)\\Steam";
+}
+
+std::vector<std::string> GetSteamLibraries(const std::string& steamPath) {
+	std::vector<std::string> libraries;
+	std::string vdfPath = steamPath + "\\steamapps\\libraryfolders.vdf";
+	
+	if (!fs::exists(vdfPath)) {
+		return libraries;
+	}
+
+	std::ifstream file(vdfPath);
+	std::string line;
+	std::regex pathRegex(R"(\"path\"\s+\"([^\"]+)\")");
+	std::smatch match;
+
+	while (std::getline(file, line)) {
+		if (std::regex_search(line, match, pathRegex)) {
+			std::string path = match[1].str();
+			std::replace(path.begin(), path.end(), '/', '\\');
+			libraries.push_back(path);
+		}
+	}
+
+	if (libraries.empty()) {
+		libraries.push_back(steamPath);
+	}
+	return libraries;
+}
+
+void saveConfig(const std::string& path) {
+	nlohmann::json configData;
+	configData["game_path"] = path;
+
+	std::ofstream file("config.json");
+	if (file.is_open()) {
+		file << configData.dump(4);
+		file.close();
+	}
+}
+
+std::string loadConfig() {
+	if (fs::exists("config.json")) {
+		std::ifstream file("config.json");
+		nlohmann::json configData;
+		try {
+			file >> configData;
+			file.close();
+
+			if (configData.contains("game_path")) {
+				std::string path = configData["game_path"].get<std::string>();
+				if (fs::exists(path)) {
+					return path;
+				}
+			}
+		} catch (...) {
+			file.close();
+		}
+	}
+	return "";
+}
+
 
 std::vector<std::string> getIpFromAWS(std::string targetRegion) {
 	std::vector<std::string> filteredIps;
@@ -89,6 +156,64 @@ static std::string chooseServerToBlock(const int& numberToSelect) {
 }
 
 int main() {
+	std::string rel_game_path = "\\steamapps\\common\\Dead by Daylight\\DeadByDaylight\\Binaries\\Win64\\DeadByDaylight-Win64-Shipping.exe";
+	std::string final_path = "";
+
+	std::cout << "[System] Scanning for Dead by Daylight..." << std::endl;
+
+	final_path = loadConfig();
+
+	if (!final_path.empty()) {
+		std::cout << "[Success] Loaded game path from config.json" << std::endl;
+	}
+	else {
+		std::cout << "[System] Config not found. Scanning for Dead by Daylight..." << std::endl;
+
+		std::string steamPath = GetSteamPathFromRegistry();
+		std::vector<std::string> libraries = GetSteamLibraries(steamPath);
+
+		for (const auto& lib : libraries) {
+			std::string check_path = lib + rel_game_path;
+			if (fs::exists(check_path)) {
+				final_path = check_path;
+				break;
+			}
+		}
+		if (!final_path.empty()) {
+			std::cout << "[Success] Found game automatically!" << std::endl;
+			saveConfig(final_path);
+		}
+	}
+
+	if (!final_path.empty()) {
+		GAME_PATH = final_path;
+		std::cout << "Path: " << GAME_PATH << "\n\nPress Enter to continue to menu...";
+		std::cin.get();
+	}
+	else {
+		std::cout << "[Warning] Could not detect the game automatically." << std::endl;
+		std::cout << "Please drag and drop your game folder (or path to EXE) here:\n-> ";
+
+		std::getline(std::cin, GAME_PATH);
+
+		if (!GAME_PATH.empty() && GAME_PATH.front() == '"' && GAME_PATH.back() == '"') {
+			GAME_PATH = GAME_PATH.substr(1, GAME_PATH.length() - 2);
+		}
+
+		if (fs::exists(GAME_PATH) && !GAME_PATH.ends_with(".exe")) {
+			GAME_PATH += rel_game_path;
+		}
+
+		if (fs::exists(GAME_PATH)) {
+			saveConfig(GAME_PATH);
+			std::cout << "[Success] Path saved!" << std::endl;
+		}
+		else {
+			std::cout << "[Error] Invalid path. Program might not work properly." << std::endl;
+			std::cin.get();
+		}
+	}
+
 	int input;
 	while (true) {
 		system("cls");

@@ -1,8 +1,3 @@
 ﻿  Server Changer.cpp
-  Generating code
-  Previous IPDB was built with incompatible compiler, fall back to full compilation.
-  All 1518 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  Server Changer.vcxproj -> D:\Users\ninez\source\repos\Server Changer\x64\Release\Server Changer.exe
-  'pwsh.exe' is not recognized as an internal or external command,
-  operable program or batch file.
+D:\Users\ninez\source\repos\Server Changer\Server Changer\Server Changer.cpp(102,118): error C2065: 'GAME_PATH': undeclared identifier
+D:\Users\ninez\source\repos\Server Changer\Server Changer\Server Changer.cpp(111,104): error C2065: 'GAME_PATH': undeclared identifier

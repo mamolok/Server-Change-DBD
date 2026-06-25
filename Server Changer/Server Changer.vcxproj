@@ -131,9 +131,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json.hpp" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ip-ranges.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\ninez\Desktop\Server Changer 16x16.ico" />
+    <Image Include="C:\Users\ninez\Desktop\Server Changer 256x256.ico" />
+    <Image Include="C:\Users\ninez\Desktop\Server Changer 32x32.ico" />
+    <Image Include="C:\Users\ninez\Desktop\Server Changer 48x48.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
