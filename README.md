@@ -3,7 +3,7 @@
 A lightweight and open-source tool to easily switch servers and regions in Dead by Daylight by managing your connection rules.
 
 ## 📥 Download
-You can download the latest compiled version of the application from the [Releases](https://github.com/mamolok/Server-Change-DBD/releases) section.
+You can download the latest compiled version of the application from the [Releases](https://github.com/mamolok/Server-Change-DBD/releases/tag/v1.0.1) section.
 
 ---
 
