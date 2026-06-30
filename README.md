@@ -1,24 +1,25 @@
-# Hi there! I'm MamoLok (Nine) 👋
+# 🌐 Free VPN Changer for Dead by Daylight
 
-Welcome to my GitHub profile! I am an aspiring **Full-Stack Developer** who loves building things and learning new technologies. 
+A lightweight and open-source tool to easily switch servers and regions in Dead by Daylight by managing your connection rules.
 
----
-
-## 🚀 About Me
-* 📖 **Current Focus:** I am currently learning **JavaScript** to level up my web development skills (still a work in progress).
-* 🛠️ **Tech Stack:** I have a solid foundation in **Java** and **C++**.
-* 🎉 **Milestone:** This repository is my very first **public project**! 
+## 📥 Download
+You can download the latest compiled version of the application from the [Releases](https://github.com/mamolok/Server-Change-DBD/releases/tag/v1.0.1) section.
 
 ---
 
-## 🛠️ Languages and Tools
-* **Languages:** JavaScript, Java, C++
-* **Interested in:** Full-Stack Development
+### 🛑 Important Requirement
+* **You must right-click the application and select "Run as administrator"** for the program to work properly.
 
 ---
 
-## 📩 Contact Me
-If you'd like to collaborate on a project or have any job opportunities, feel free to reach out:
-* 📧 **Email:** baramee.dev@gmail.com
+## 🎮 How the Server Selection Works
+This program works by **blocking the servers you DO NOT want to play on**. To route your game to a specific server, you need to block the other available regions.
+
+### 📌 Quick Examples:
+* **To play on Tokyo server (Option 2):** Enter **1** and press Enter, then repeat the process for numbers **3, 4, 5, and 6**.
+* **To play on US East server:** Simply block all available servers on the list (**Options 1 through 6**) one by one. The game will automatically route you to US East.
 
 ---
+
+## ⚠️ How to Reset / Revert Changes
+* 🔄 **Unblock All Servers:** If you want to clear all blocks and restore everything back to normal, simply press **7** (Unblock All / Delete Rule).
