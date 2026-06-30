@@ -147,8 +147,8 @@ static std::string chooseServerToBlock(const int& numberToSelect) {
 	case 4: regionName = "ap-east-1"; break;
 	case 5: regionName = "ap-southeast-2"; break;
 	case 6: regionName = "ap-south-1"; break;
-	case 7: regionName = "us-east-1"; break;
-	case 8: system(clearCommand.c_str());
+	//case 7: regionName = "us-east-1"; break;
+	case 7: system(clearCommand.c_str());
 		std::cout << "Firewall rules cleared." << std::endl;
 		break;
 	}
@@ -224,8 +224,8 @@ int main() {
 		std::cout << "4. Hong Kong (ap-east-1)" << std::endl;
 		std::cout << "5. Sydney (ap-southeast-2)" << std::endl;
 		std::cout << "6. Mumbai [india] (ap-south-1)" << std::endl;
-		std::cout << "7. US East (us-east-1)" << std::endl;
-		std::cout << "8. Unblock All (Delete Rule)" << std::endl;
+		//std::cout << "7. US East (us-east-1)" << std::endl;
+		std::cout << "7. Unblock All (Delete Rule)" << std::endl;
 		std::cout << "---------------------------" << std::endl;
 		std::cout << "Select option: ";
 

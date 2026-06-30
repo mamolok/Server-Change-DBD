@@ -1,3 +1,8 @@
-﻿  Server Changer.cpp
-D:\Users\ninez\source\repos\Server Changer\Server Changer\Server Changer.cpp(102,118): error C2065: 'GAME_PATH': undeclared identifier
-D:\Users\ninez\source\repos\Server Changer\Server Changer\Server Changer.cpp(111,104): error C2065: 'GAME_PATH': undeclared identifier
+﻿  Generating code
+  0 of 2540 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Server Changer.vcxproj -> D:\Users\ninez\source\repos\Server Changer\x64\Release\Server Changer.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.
