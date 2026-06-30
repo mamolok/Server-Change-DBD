@@ -1,4 +1,4 @@
-# ⚡ Free VPN Changer for Dead by Daylight
+# 🌐 Free VPN Changer for Dead by Daylight
 
 A lightweight and open-source tool to easily switch servers and regions in Dead by Daylight by managing your connection rules.
 
